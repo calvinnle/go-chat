@@ -15,12 +15,11 @@ func NewDatabase() (*Database, error) {
 		return nil, err
 	}
 
-	// // Ping the database to confirm the connection
-	// if err = db.Ping(); err != nil {
-	// 	db.Close()
-	// 	return nil, err
-	// }
-	//
+	// Ping the database to confirm the connection
+	if err = db.Ping(); err != nil {
+		db.Close()
+		return nil, err
+	}
 
 	return &Database{db: db}, nil
 }
